@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-05-13T22:15:32.089827",
+  "N": 500,
+  "steps": 1000,
+  "total_combinations": 288,
+  "valid_simulations": 0,
+  "errors": 288,
+  "results": [],
+  "candidates": []
+}

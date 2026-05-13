@@ -158,6 +158,5 @@ config/local.yaml
 
 原始文档/
 *.dat
-causal_dynamics_sim/
 
 
