@@ -1,0 +1,63 @@
+# Makefile with CUDA support
+# 
+# 使用方法：
+# 1. 无CUDA：make -f Makefile.cuda cpu
+# 2. 有CUDA：make -f Makefile.cuda gpu
+
+CC = gcc
+NVCC = nvcc
+CFLAGS = -Wall -O2 -I./include -fopenmp
+NVCCFLAGS = -O2 -I./include -x cu -ccbin "g++"
+LDFLAGS = -lm -fopenmp -Wl,--stack,67108864
+
+SRCDIR = src
+OBJDIR = obj
+
+CPU_SRCS = causal_graph_v2.c dynamics_v2.c finite_size_scaling.c \
+           geometry_emergence.c main.c unit_tests_v2.c wilson_loop.c
+CPU_OBJS = $(addprefix $(OBJDIR)/, $(CPU_SRCS:.c=.o))
+
+CUDA_SRCS = cuda_laplacian.cu
+CUDA_OBJS = $(addprefix $(OBJDIR)/, $(CUDA_SRCS:.cu=.o))
+
+TARGET = causal_sim_v2
+
+.PHONY: all cpu gpu clean
+
+all: cpu
+
+cpu: $(CPU_OBJS)
+	$(CC) $(CPU_OBJS) -o $(TARGET) $(LDFLAGS)
+	@echo "CPU version built successfully"
+
+gpu: $(CPU_OBJS) $(CUDA_OBJS)
+	$(CC) $(CPU_OBJS) $(CUDA_OBJS) -o $(TARGET) $(LDFLAGS) -lcudart
+	@echo "GPU version built successfully"
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cu
+	@mkdir -p $(OBJDIR)
+	$(NVCC) $(NVCCFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(OBJDIR) ./$(TARGET)
+
+test: all
+	./$(TARGET) test
+
+help:
+	@echo "Makefile with CUDA support"
+	@echo ""
+	@echo "Targets:"
+	@echo "  all   - Build CPU version (default)"
+	@echo "  cpu   - Build CPU version with OpenMP"
+	@echo "  gpu   - Build GPU version with CUDA"
+	@echo "  clean - Remove all build files"
+	@echo "  test  - Run unit tests"
+	@echo ""
+	@echo "Requirements:"
+	@echo "  CPU: GCC with OpenMP support"
+	@echo "  GPU: CUDA Toolkit (nvcc)"

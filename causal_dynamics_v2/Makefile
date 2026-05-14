@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -O2 -I./include -fopenmp
-LDFLAGS = -lm -fopenmp
+LDFLAGS = -lm -fopenmp -Wl,--stack,67108864
 
 SRCDIR = src
 INCDIR = include
@@ -34,6 +34,14 @@ single: all
 null: all
 	./causal_sim_v2 null
 
+# 大规模测试
+large: all
+	./causal_sim_v2 single -N 1000 -steps 2000 -eta 0.1 -lambda 1.0 -kc 0.1 -alpha 0.5
+
+# 超大规模测试
+xlarge: all
+	./causal_sim_v2 single -N 1500 -steps 3000 -eta 0.1 -lambda 1.0 -kc 0.1 -alpha 0.5
+
 phase0: all
 	@echo "=== Phase 0: Implementation and Debugging ==="
 	./causal_sim_v2 test
@@ -46,4 +54,4 @@ phase1: all
 	@echo ""
 	@echo "Phase 1 Complete: Parameter scan finished"
 
-.PHONY: all clean test single null phase0 phase1 directories
+.PHONY: all clean test single null large xlarge phase0 phase1 directories

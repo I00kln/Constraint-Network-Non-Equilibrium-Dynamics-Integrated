@@ -134,8 +134,30 @@ static int run_single_mode(int argc, char *argv[]) {
     printf("Spectral clusters: %d, three_gen=%s\n",
            sr.num_clusters, sr.three_generation_detected ? "Yes" : "No");
     
+    // 递归深度分析（三代结构）
+    ThreeGenerationResult tg_result;
+    analyze_three_generation_structure(&graph, &spectrum, &tg_result);
+    printf("\n=== Three Generation Analysis ===\n");
+    printf("Gen1 (depth=0): %d nodes (%.2f%%)\n", tg_result.gen1_nodes, tg_result.gen1_fraction * 100);
+    printf("Gen2 (depth=1): %d nodes (%.2f%%)\n", tg_result.gen2_nodes, tg_result.gen2_fraction * 100);
+    printf("Gen3 (depth=2): %d nodes (%.2f%%)\n", tg_result.gen3_nodes, tg_result.gen3_fraction * 100);
+    printf("Three-gen detected: %s\n", tg_result.three_gen_detected ? "Yes" : "No");
+    if (tg_result.three_gen_detected) {
+        printf("Mass ratios: G2/G1=%.3f, G3/G2=%.3f\n", tg_result.mass_ratio_12, tg_result.mass_ratio_23);
+    }
+    
+    // IPR分析（本征模局域化）
+    double ipr_values[MAX_EIGENVECTORS];
+    int localized_modes[MAX_EIGENVECTORS];
+    analyze_eigenmode_localization(&spectrum, ipr_values, localized_modes, 0.1);
+    printf("\n=== Eigenmode Localization (IPR) ===\n");
+    int num_localized = 0;
+    while (localized_modes[num_localized] >= 0) num_localized++;
+    printf("Localized modes (IPR>0.1): %d/%d\n", num_localized, spectrum.num_eigenvalues);
+    printf("Avg IPR: %.4f\n", ipr_values[0]);
+    
     int converged = check_convergence(obs_history, history_len, 1e-4);
-    printf("Converged: %s\n", converged ? "Yes" : "No");
+    printf("\nConverged: %s\n", converged ? "Yes" : "No");
     
     return 0;
 }

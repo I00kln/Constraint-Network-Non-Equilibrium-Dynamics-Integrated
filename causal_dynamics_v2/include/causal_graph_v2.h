@@ -3,10 +3,10 @@
 
 #include <complex.h>
 
-#define MAX_NODES 700
-#define MAX_EDGES 12000
-#define MAX_NEIGHBORS 70
-#define MAX_EIGENVECTORS 40
+#define MAX_NODES 1000
+#define MAX_EDGES 20000
+#define MAX_NEIGHBORS 100
+#define MAX_EIGENVECTORS 50
 
 typedef enum {
     GAUGE_U1,

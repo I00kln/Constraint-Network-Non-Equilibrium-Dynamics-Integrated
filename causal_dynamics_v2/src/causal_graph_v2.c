@@ -265,6 +265,20 @@ static void apply_laplacian(const CausalGraphV2 *graph, const double *v_in, doub
     }
 }
 
+#ifdef USE_CUDA
+extern void compute_laplacian_spectrum_cuda(
+    const int num_nodes,
+    const int num_edges,
+    const int *edge_from,
+    const int *edge_to,
+    const int *in_degree,
+    const int *out_degree,
+    double *eigenvalues,
+    double *eigenvectors,
+    int num_eigenvalues
+);
+#endif
+
 void compute_laplacian_spectrum(const CausalGraphV2 *graph, LaplacianSpectrum *spectrum, int num_eigenvalues) {
     memset(spectrum, 0, sizeof(LaplacianSpectrum));
     
@@ -272,6 +286,42 @@ void compute_laplacian_spectrum(const CausalGraphV2 *graph, LaplacianSpectrum *s
     if (num_eigenvalues > MAX_EIGENVECTORS) num_eigenvalues = MAX_EIGENVECTORS;
     if (num_eigenvalues > n) num_eigenvalues = n;
     
+#ifdef USE_CUDA
+    // 使用CUDA加速
+    if (n >= 200) {  // 只有大规模才使用CUDA
+        static int edge_from[MAX_EDGES];
+        static int edge_to[MAX_EDGES];
+        
+        for (int e = 0; e < graph->num_edges; e++) {
+            edge_from[e] = graph->edges[e].from;
+            edge_to[e] = graph->edges[e].to;
+        }
+        
+        static double eigenvectors_flat[MAX_NODES * MAX_EIGENVECTORS];
+        
+        compute_laplacian_spectrum_cuda(
+            n, graph->num_edges,
+            edge_from, edge_to,
+            graph->in_degree, graph->out_degree,
+            spectrum->eigenvalues,
+            eigenvectors_flat,
+            num_eigenvalues
+        );
+        
+        // 转换回二维数组
+        for (int k = 0; k < num_eigenvalues; k++) {
+            for (int i = 0; i < n; i++) {
+                spectrum->eigenvectors[i][k] = eigenvectors_flat[k * n + i];
+            }
+        }
+        
+        spectrum->num_eigenvalues = num_eigenvalues;
+        spectrum->cutoff_index = num_eigenvalues / 5;
+        return;
+    }
+#endif
+    
+    // CPU版本
     static double v[MAX_NODES];
     static double Lv[MAX_NODES];
     static double temp[MAX_NODES];

@@ -115,14 +115,20 @@ void step1_causal_propagation_v2(CausalGraphV2 *graph, InformationStateV2 *state
 
 void step2_spectral_decomposition(const CausalGraphV2 *graph, InformationStateV2 *state,
                                    LaplacianSpectrum *spectrum, double kc_fraction) {
-    int num_eigenvalues = (int)(kc_fraction * state->num_nodes);
-    if (num_eigenvalues < 1) num_eigenvalues = 1;
+    int num_eigenvalues = (int)(0.5 * state->num_nodes);
+    if (num_eigenvalues < 20) num_eigenvalues = 20;
     if (num_eigenvalues > MAX_EIGENVECTORS) num_eigenvalues = MAX_EIGENVECTORS;
     
     compute_laplacian_spectrum(graph, spectrum, num_eigenvalues);
     
-    int cutoff = (int)(kc_fraction * spectrum->num_eigenvalues);
-    if (cutoff < 1) cutoff = 1;
+    int cutoff = 1;
+    double lambda_threshold = 0.1;
+    for (int i = 0; i < spectrum->num_eigenvalues; i++) {
+        if (spectrum->eigenvalues[i] < lambda_threshold) {
+            cutoff = i + 1;
+        }
+    }
+    if (cutoff < 2) cutoff = 2;
     
     project_to_macro(spectrum, state->rho, state->macro, state->num_nodes, cutoff);
     project_to_micro(spectrum, state->rho, state->micro, state->num_nodes, cutoff);

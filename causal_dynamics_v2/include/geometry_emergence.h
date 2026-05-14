@@ -50,10 +50,39 @@ typedef struct {
     double mass_ratios[3];
 } SpectralClusterResult;
 
+typedef struct {
+    int depth_counts[11];
+    int gen1_nodes;
+    int gen2_nodes;
+    int gen3_nodes;
+    int total_nodes;
+    double gen1_fraction;
+    double gen2_fraction;
+    double gen3_fraction;
+    int three_gen_detected;
+    double mass_ratio_12;
+    double mass_ratio_23;
+} ThreeGenerationResult;
+
 void analyze_eigenvalue_clusters(const LaplacianSpectrum *spectrum, 
                                   SpectralClusterResult *result,
                                   double gap_threshold);
+void analyze_eigenvalue_clusters_kmeans(const LaplacianSpectrum *spectrum,
+                                        SpectralClusterResult *result,
+                                        int max_k);
 int detect_three_generations(SpectralClusterResult *result);
 void compute_mass_ratios(SpectralClusterResult *result);
+
+double compute_ipr(const double *eigenvector, int n);
+void analyze_eigenmode_localization(const LaplacianSpectrum *spectrum,
+                                     double *ipr_values,
+                                     int *localized_modes,
+                                     double ipr_threshold);
+void analyze_recursive_depth_distribution(const CausalGraphV2 *graph,
+                                           int *depth_counts,
+                                           int max_depth);
+void analyze_three_generation_structure(const CausalGraphV2 *graph,
+                                         const LaplacianSpectrum *spectrum,
+                                         ThreeGenerationResult *result);
 
 #endif
