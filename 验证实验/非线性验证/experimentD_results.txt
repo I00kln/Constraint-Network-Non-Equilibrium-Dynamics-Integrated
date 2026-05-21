@@ -1,0 +1,21 @@
+实验D：因果分离重构 + 熵上界 + 次可加性 + 隐藏自由度验证结果
+======================================================================
+
+{'rule_name': 'Rule90', 'T': 2, 'c': 1, 'num_separated_pairs': 15, 'total_tests': 15, 'theorem_context': '因果分离条件下逐层重构'}
+
+{'rule_name': 'Rule110', 'T': 2, 'c': 1, 'num_separated_pairs': 10, 'total_tests': 10, 'theorem_context': '因果分离条件下逐层重构'}
+
+{'rule_name': 'Rule90', 'c': 1, 'v_minus': 1, 'v_plus': 1, 'kappa': 0, 'T_values': [1, 2, 3, 4], 'delta_sequence': [0.0, 0.0, 0.0, 1.5849625007211563], 'Delta_max_sequence': [0.0, 0.0, 0.0, 1.0986122886681098], 'h_obs_estimates': [0.0, 0.0, 0.0, 0.27465307216702745], 'h_obs': 0.27465307216702745, 'upper_bound': 0.27465307216702745, 'note': 'h_fib ≤ 0.2747 (上界验证)'}
+
+{'rule_name': 'Rule110', 'c': 1, 'v_minus': 1, 'v_plus': 1, 'kappa': 0, 'T_values': [1, 2, 3, 4], 'delta_sequence': [2.0, 3.0, 5.0, 2.807354922057604], 'Delta_max_sequence': [1.3862943611198906, 2.0794415416798357, 3.4657359027997265, 1.9459101490553132], 'h_obs_estimates': [1.3862943611198906, 1.0397207708399179, 1.1552453009332422, 0.4864775372638283], 'h_obs': 1.3862943611198906, 'upper_bound': 1.3862943611198906, 'note': 'h_fib ≤ 1.3863 (上界验证)'}
+
+{'rule_name': 'Rule30', 'c': 1, 'v_minus': 1, 'v_plus': 1, 'kappa': 0, 'T_values': [1, 2, 3, 4], 'delta_sequence': [1.0, 2.0, 3.0, 2.0], 'Delta_max_sequence': [0.6931471805599453, 1.3862943611198906, 2.0794415416798357, 1.3862943611198906], 'h_obs_estimates': [0.6931471805599453, 0.6931471805599453, 0.6931471805599453, 0.34657359027997264], 'h_obs': 0.6931471805599453, 'upper_bound': 0.6931471805599453, 'note': 'h_fib ≤ 0.6931 (上界验证)'}
+
+{'rule_name': 'Rule90', 'c': 1, 'T_max': 4, 'delta_values': {'1': 0.0, '2': 0.0, '3': 0.0, '4': 0.6931471805599453}, 'subadditivity_checks': 6, 'subadditivity_violations': 3, 'approximately_subadditive': False}
+
+{'rule_name': 'Rule110', 'c': 1, 'T_max': 4, 'delta_values': {'1': 1.3862943611198906, '2': 2.0794415416798357, '3': 3.4657359027997265, '4': 1.9459101490553132}, 'subadditivity_checks': 6, 'subadditivity_violations': 0, 'approximately_subadditive': True}
+
+{'h_fib': 0.6931471805599453, 'h_obs': 1.3862943611198906, 'kappa': 0, 'is_tight': False, 'rho': 0.1931471805599453, 'rho_positive': True, 'conjecture_2_2_holds': True, 'experiment': '隐藏自由度模型验证', 'conjecture_2_2_summary': 'h_fib=0.6931, h_obs=1.3863, κ=0, ρ=0.1931, 上界非紧=True, ρ>0=True'}
+
+{'experiment': '冗余速率收敛性', 'T_values': [5, 10, 20, 50, 100], 'rho_values': [0.1931471805599453, 0.1931471805599453, 0.1931471805599453, 0.1931471805599454, 0.1931471805599453], 'expected_rho': -0.15342640972002736, 'converges': False}
+

@@ -1,0 +1,47 @@
+实验B：观测等价类逐层细化与信息亏损计算结果
+======================================================================
+
+{'rule_name': 'Rule90', 'T': 1, 'c': 1, 'n_free': 5, 'total_configs': 32, 'sampled': False, 'num_equivalence_classes': 32, 'max_fiber_size': 1, 'delta_max': 0.0, 'I_infty_size': 0, 'is_injective': True, 'complete_obs': True}
+
+{'rule_name': 'Rule90', 'T': 2, 'c': 1, 'n_free': 9, 'total_configs': 512, 'sampled': False, 'num_equivalence_classes': 512, 'max_fiber_size': 1, 'delta_max': 0.0, 'I_infty_size': 0, 'is_injective': True, 'complete_obs': True}
+
+{'rule_name': 'Rule90', 'T': 3, 'c': 1, 'n_free': 13, 'total_configs': 8192, 'sampled': False, 'num_equivalence_classes': 8192, 'max_fiber_size': 1, 'delta_max': 0.0, 'I_infty_size': 0, 'is_injective': True, 'complete_obs': True}
+
+{'rule_name': 'Rule110', 'T': 1, 'c': 1, 'n_free': 5, 'total_configs': 32, 'sampled': False, 'num_equivalence_classes': 18, 'max_fiber_size': 4, 'delta_max': 2.0, 'I_infty_size': 0, 'is_injective': False, 'complete_obs': False}
+
+{'rule_name': 'Rule110', 'T': 2, 'c': 1, 'n_free': 9, 'total_configs': 512, 'sampled': False, 'num_equivalence_classes': 149, 'max_fiber_size': 8, 'delta_max': 3.0, 'I_infty_size': 0, 'is_injective': False, 'complete_obs': False}
+
+{'rule_name': 'Rule110', 'T': 3, 'c': 1, 'n_free': 13, 'total_configs': 8192, 'sampled': False, 'num_equivalence_classes': 1184, 'max_fiber_size': 32, 'delta_max': 5.0, 'I_infty_size': 0, 'is_injective': False, 'complete_obs': False}
+
+{'rule_name': 'Rule30', 'T': 1, 'c': 1, 'n_free': 5, 'total_configs': 32, 'sampled': False, 'num_equivalence_classes': 24, 'max_fiber_size': 2, 'delta_max': 1.0, 'I_infty_size': 0, 'is_injective': False, 'complete_obs': False}
+
+{'rule_name': 'Rule30', 'T': 2, 'c': 1, 'n_free': 9, 'total_configs': 512, 'sampled': False, 'num_equivalence_classes': 256, 'max_fiber_size': 4, 'delta_max': 2.0, 'I_infty_size': 0, 'is_injective': False, 'complete_obs': False}
+
+{'rule_name': 'Rule30', 'T': 3, 'c': 1, 'n_free': 13, 'total_configs': 8192, 'sampled': False, 'num_equivalence_classes': 2560, 'max_fiber_size': 8, 'delta_max': 3.0, 'I_infty_size': 0, 'is_injective': False, 'complete_obs': False}
+
+{'rule_name': 'Rule184', 'T': 1, 'c': 1, 'n_free': 5, 'total_configs': 32, 'sampled': False, 'num_equivalence_classes': 18, 'max_fiber_size': 4, 'delta_max': 2.0, 'I_infty_size': 0, 'is_injective': False, 'complete_obs': False}
+
+{'rule_name': 'Rule184', 'T': 2, 'c': 1, 'n_free': 9, 'total_configs': 512, 'sampled': False, 'num_equivalence_classes': 162, 'max_fiber_size': 16, 'delta_max': 4.0, 'I_infty_size': 0, 'is_injective': False, 'complete_obs': False}
+
+{'rule_name': 'Rule184', 'T': 3, 'c': 1, 'n_free': 13, 'total_configs': 8192, 'sampled': False, 'num_equivalence_classes': 1568, 'max_fiber_size': 64, 'delta_max': 6.0, 'I_infty_size': 0, 'is_injective': False, 'complete_obs': False}
+
+{'rule_name': 'Rule90', 'T': 1, 'c': 1, 'no_hidden': True, 'all_singletons': True, 'is_injective_by_criterion': True, 'is_injective_by_blocks': True, 'proposition_holds': True}
+
+{'rule_name': 'Rule90', 'T': 2, 'c': 1, 'no_hidden': True, 'all_singletons': True, 'is_injective_by_criterion': True, 'is_injective_by_blocks': True, 'proposition_holds': True}
+
+{'rule_name': 'Rule110', 'T': 1, 'c': 1, 'no_hidden': True, 'all_singletons': False, 'is_injective_by_criterion': False, 'is_injective_by_blocks': False, 'proposition_holds': True}
+
+{'rule_name': 'Rule110', 'T': 2, 'c': 1, 'no_hidden': True, 'all_singletons': False, 'is_injective_by_criterion': False, 'is_injective_by_blocks': False, 'proposition_holds': True}
+
+{'rule_name': 'Rule90', 'c': 1, 'T_values': [1, 2, 3, 4], 'delta_sequence': [0.0, 0.0, 0.0, 1.5849625007211563], 'delta_per_T': [0.0, 0.0, 0.0, 0.3962406251802891]}
+
+{'rule_name': 'Rule110', 'c': 1, 'T_values': [1, 2, 3, 4], 'delta_sequence': [2.0, 3.0, 5.0, 3.1699250014423126], 'delta_per_T': [2.0, 1.5, 1.6666666666666667, 0.7924812503605781]}
+
+{'rule_name': 'Rule30', 'c': 1, 'T_values': [1, 2, 3, 4], 'delta_sequence': [1.0, 2.0, 3.0, 2.321928094887362], 'delta_per_T': [1.0, 1.0, 1.0, 0.5804820237218405]}
+
+{'T': 1, 'c': 1, 'rule90_delta_max': 0.0, 'rule110_delta_max': 2.0, 'rule90_I_infty': 0, 'rule110_I_infty': 0, 'rule90_complete_obs': True, 'rule110_complete_obs': False, 'nonlinear_has_extra_defect': True}
+
+{'T': 2, 'c': 1, 'rule90_delta_max': 0.0, 'rule110_delta_max': 3.0, 'rule90_I_infty': 0, 'rule110_I_infty': 0, 'rule90_complete_obs': True, 'rule110_complete_obs': False, 'nonlinear_has_extra_defect': True}
+
+{'T': 3, 'c': 1, 'rule90_delta_max': 0.0, 'rule110_delta_max': 5.0, 'rule90_I_infty': 0, 'rule110_I_infty': 0, 'rule90_complete_obs': True, 'rule110_complete_obs': False, 'nonlinear_has_extra_defect': True}
+

@@ -1,0 +1,39 @@
+实验A：有效传播速度与几何障碍验证结果
+======================================================================
+
+{'case_name': 'Rule 90', 'rule_name': 'Rule90', 'r': 1, 'expected_v_minus': 1, 'expected_v_plus': 1, 'actual_v_minus': 1, 'actual_v_plus': 1, 'v_correct': True}
+
+{'case_name': 'Rule 150', 'rule_name': 'Rule150', 'r': 1, 'expected_v_minus': 1, 'expected_v_plus': 1, 'actual_v_minus': 1, 'actual_v_plus': 1, 'v_correct': True}
+
+{'case_name': 'Rule 110', 'rule_name': 'Rule110', 'r': 1, 'expected_v_minus': 1, 'expected_v_plus': 1, 'actual_v_minus': 1, 'actual_v_plus': 1, 'v_correct': True}
+
+{'case_name': 'Rule 30', 'rule_name': 'Rule30', 'r': 1, 'expected_v_minus': 1, 'expected_v_plus': 1, 'actual_v_minus': 1, 'actual_v_plus': 1, 'v_correct': True}
+
+{'case_name': 'Rule 184', 'rule_name': 'Rule184', 'r': 1, 'expected_v_minus': 1, 'expected_v_plus': 1, 'actual_v_minus': 1, 'actual_v_plus': 1, 'v_correct': True}
+
+{'rule_name': 'Rule90', 'T': 3, 'c': 1, 'num_tests': 30, 'violations': 0, 'lemma_holds': True}
+
+{'rule_name': 'Rule110', 'T': 3, 'c': 1, 'num_tests': 30, 'violations': 0, 'lemma_holds': True}
+
+{'rule_name': 'Rule30', 'T': 3, 'c': 1, 'num_tests': 30, 'violations': 0, 'lemma_holds': True}
+
+{'rule_name': 'ShiftRight_v-1_v+0', 'T': 2, 'c': 1, 'I_infty_size': 2, 'violations': 0, 'proposition_holds': True}
+
+{'rule_name': 'ShiftRight_v-1_v+0', 'T': 3, 'c': 1, 'I_infty_size': 3, 'violations': 0, 'proposition_holds': True}
+
+{'rule_name': 'Asymmetric_v-2_v+0', 'T': 2, 'c': 1, 'I_infty_size': 4, 'violations': 0, 'proposition_holds': True}
+
+{'rule_name': 'Asymmetric_v-2_v+0', 'T': 3, 'c': 1, 'I_infty_size': 6, 'violations': 0, 'proposition_holds': True}
+
+{'rule_name': 'ShiftRight_v-1_v+0', 'v_minus': 1, 'v_plus': 0, 'v': 1, 'expected_kappa': 1, 'computed_kappa': np.float64(1.0), 'kappa_correct': np.True_, 'T_values': [3, 5, 7, 10], 'computed_sizes': [3, 5, 7, 10], 'expected_sizes': [3, 5, 7, 10]}
+
+{'rule_name': 'Asymmetric_v-2_v+0', 'v_minus': 2, 'v_plus': 0, 'v': 2, 'expected_kappa': 2, 'computed_kappa': np.float64(2.0), 'kappa_correct': np.True_, 'T_values': [3, 5, 7, 10], 'computed_sizes': [6, 10, 14, 20], 'expected_sizes': [6, 10, 14, 20]}
+
+{'rule_name': 'ShiftRight_v-1_v+0', 'T': 3, 'c': 1, 'I_infty_size': 3, 'violations': 0, 'lemma_holds': True}
+
+{'rule_name': 'ShiftRight_v-1_v+0', 'T': 5, 'c': 1, 'I_infty_size': 5, 'violations': 0, 'lemma_holds': True}
+
+{'rule_name': 'Asymmetric_v-2_v+0', 'T': 3, 'c': 1, 'I_infty_size': 6, 'violations': 0, 'lemma_holds': True}
+
+{'rule_name': 'Asymmetric_v-2_v+0', 'T': 5, 'c': 1, 'I_infty_size': 10, 'violations': 0, 'lemma_holds': True}
+
